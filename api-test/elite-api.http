@@ -1,0 +1,7 @@
+###http://101.200.79.239
+GET localhost:8080/test
+Content-Type: application/json
+
+
+###
+GET localhost:8080/testt

@@ -1,0 +1,15 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: eliteButler
+  datasource:
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://101.200.79.239:3306/elite_butler?serverTimezone=UTC&userUnicode=true&useSSL=false&
+      username: root
+      password: qwemnb333
+mybatis-plus:
+  configuration:
+    #在映射实体或者属性时，将数据库中表名和字段名中的下划线去掉，按照驼峰命名法映射
+    map-underscore-to-camel-case: true
