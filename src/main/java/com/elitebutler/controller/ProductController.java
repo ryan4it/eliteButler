@@ -5,6 +5,8 @@ import com.elitebutler.po.ProductPo;
 import com.elitebutler.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,8 +19,13 @@ public class ProductController {
     ProductService productService;
 
     @GetMapping("/getProductList")
-    public R<List<ProductPo>> getAllProduct(){
-        List<ProductPo> allProducts = productService.getAllProducts();
-        return R.success(allProducts);
+    public List<ProductPo> getAllProduct(){
+        return productService.getAllProducts();
+    }
+
+    @GetMapping("/getProductByType/{type}")
+    public List<ProductPo> getProductByType(@PathVariable("type") String type){
+        productService.getProductByType(type);
+        return null;
     }
 }
