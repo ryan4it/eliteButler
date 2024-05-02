@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.elitebutler.mapper.UserInfoMapper">
+
+<!--    <insert id="batchInsert" parameterType="java.util.List">-->
+<!--        INSERT INTO user_info-->
+<!--        VALUES-->
+<!--        <foreach collection="userInfos" item="userInfo" separator=",">-->
+<!--            (null,#{userInfo.houseName},#{userInfo.name},#{userInfo.idType},#{userInfo.idNumber},#{userInfo.birthDate},-->
+<!--            #{userInfo.occupation},#{userInfo.rent},#{userInfo.deposit},#{userInfo.payMethod})-->
+<!--        </foreach>-->
+<!--    </insert>-->
+
+    <insert id="batchInsert" parameterType="java.util.List">
+        INSERT INTO user_info (house_name, name, id_type, id_number, birth_date, occupation, rent, deposit, pay_method)
+        VALUES
+        <foreach collection="list" item="item" separator=",">
+            (#{item.houseName}, #{item.name}, #{item.idType}, #{item.idNumber}, #{item.birthDate}, #{item.occupation}, #{item.rent}, #{item.deposit}, #{item.payMethod})
+        </foreach>
+    </insert>
+</mapper>

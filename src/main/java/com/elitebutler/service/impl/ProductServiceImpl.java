@@ -26,4 +26,11 @@ public class ProductServiceImpl implements ProductService {
         queryWrapper.eq(ProductPo::getProductType, type);
         return productMapper.selectList(queryWrapper);
     }
+
+    @Override
+    public List<ProductPo> getProductById(String id) {
+        LambdaQueryWrapper<ProductPo> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.eq(ProductPo::getId, id);
+        return productMapper.selectList(queryWrapper);
+    }
 }

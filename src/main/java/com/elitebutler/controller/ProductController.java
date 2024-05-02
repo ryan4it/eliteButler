@@ -25,7 +25,13 @@ public class ProductController {
 
     @GetMapping("/getProductByType/{type}")
     public List<ProductPo> getProductByType(@PathVariable("type") String type){
-        productService.getProductByType(type);
-        return null;
+        List<ProductPo> products = productService.getProductByType(type);
+        return products;
+    }
+
+    @GetMapping("/getProductByType/{id}")
+    public List<ProductPo> getProductById(@PathVariable("id") String id){
+        List<ProductPo> products = productService.getProductByType(id);
+        return products;
     }
 }
